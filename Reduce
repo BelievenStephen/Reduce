@@ -1,0 +1,21 @@
+function reduce(array, callback, initialValue) {
+  // declare accumulator variable and initialize it to the initial value
+  let accumulator = initialValue;
+  // loop through the elements of the array
+  for (let i = 0; i < array.length; i++) {
+    // update the accumulator with the result of calling the callback function on the accumulator and the current element of the array
+    accumulator = callback(accumulator, array[i]);
+  }
+  // return the final value of the accumulator
+  return accumulator;
+}
+
+
+//test cases
+const numbers = [1, 2, 3, 4, 5];
+const sum = reduce(numbers, (accumulator, current) => accumulator + current, 0);
+console.log(sum); // Expected output: 15
+
+const words = ['Hello', ' ', 'world', '!'];
+const sentence = reduce(words, (accumulator, current) => accumulator + current, '');
+console.log(sentence); // Expected output: 'Hello world!'
